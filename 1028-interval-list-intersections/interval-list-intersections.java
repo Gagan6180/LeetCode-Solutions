@@ -2,6 +2,7 @@ class Solution {
     public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
 
         List<int[]>res = new ArrayList<>();
+        
         int n = firstList.length;
         int m = secondList.length;
 
