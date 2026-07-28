@@ -2,9 +2,11 @@ class Solution {
     public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
 
         List<int[]>res = new ArrayList<>();
+        int n = firstList.length;
+        int m = secondList.length;
 
         int i=0, j=0;
-        while(i< firstList.length && j< secondList.length){
+        while(i< n && j< m){
 
             int s = Math.max(firstList[i][0] , secondList[j][0]);
             int e = Math.min(firstList[i][1] , secondList[j][1]);
