@@ -13,6 +13,7 @@ class Solution {
                 str.push(ch);
             }
         }
+        
         StringBuilder res = new StringBuilder();
         while(!str.isEmpty()){
             res.append(str.pop());
