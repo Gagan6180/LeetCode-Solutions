@@ -7,7 +7,8 @@ class Solution {
         map.put('}','{');
 
         Stack<Character>str = new Stack<>();
-        for(int i=0;i<s.length();i++){
+        int n = s.length();
+        for(int i=0;i<=n-1;i++){
             char ch = s.charAt(i);
 
             if(map.containsKey(ch)){
