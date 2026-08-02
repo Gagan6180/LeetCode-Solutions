@@ -20,8 +20,9 @@ class Solution {
             }
             str.push(element);
         }
-        int [] ans = new int [nums1.length];
-        for(int i=0 ; i<nums1.length ;i++){
+        int m = nums1.length;
+        int [] ans = new int [m];
+        for(int i=0 ; i<m ;i++){
             ans[i] = map.get(nums1[i]);
         }
         return ans;
