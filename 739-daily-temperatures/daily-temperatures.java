@@ -1,8 +1,7 @@
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
-        Stack<Integer>stack = new Stack<>();
-
         int n = temperatures.length;
+        Stack<Integer>stack = new Stack<>();
         int [] res = new int [n];
 
         for(int i=n-1 ;i>=0 ;i--){
