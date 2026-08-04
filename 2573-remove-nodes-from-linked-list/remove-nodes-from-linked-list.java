@@ -11,27 +11,27 @@
 class Solution {
     public ListNode removeNodes(ListNode head) {
         Stack<ListNode>str = new Stack<>();
+
         ListNode temp = head;
 
         while(temp != null){
             str.push(temp);
             temp = temp.next;
         }
-        //create new list
         ListNode newHead = str.pop();
-        int max = newHead.val;
+        int maxVal = newHead.val;
+
         while(!str.isEmpty()){
             ListNode node = str.pop();
-
-            if(node.val < max){
+            if(maxVal > node.val){
                 continue;
             }else{
-                //insert at head
                 node.next = newHead;
                 newHead = node;
-                max = node.val;
+                maxVal = node.val;
             }
         }
         return newHead;
+
     }
 }
