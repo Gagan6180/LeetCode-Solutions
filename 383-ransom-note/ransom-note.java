@@ -1,20 +1,23 @@
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        HashMap<Character, Integer> counts = new HashMap<>();
-        
-        // Count frequencies of characters in magazine
-        for (char c : magazine.toCharArray()) {
-            counts.put(c, counts.getOrDefault(c, 0) + 1);
+
+        if(ransomNote.length() > magazine.length()){
+            return false;
         }
-        
-        // Check if ransomNote can be constructed
-        for (char c : ransomNote.toCharArray()) {
-            if (!counts.containsKey(c) || counts.get(c) <= 0) {
+        HashMap<Character,Integer>map = new HashMap<>();
+
+        for(char ch : magazine.toCharArray()){
+            map.put(ch,map.getOrDefault(ch,0)+1);
+        }
+
+        for(char ch : ransomNote.toCharArray()){
+            int Ccount = map.getOrDefault(ch,0);
+
+            if(Ccount <= 0){
                 return false;
             }
-            counts.put(c, counts.get(c) - 1);
+            map.put(ch,Ccount-1);
         }
-        
         return true;
     }
 }
