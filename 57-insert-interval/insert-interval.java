@@ -4,15 +4,16 @@ class Solution {
         int n = intervals.length;
         List<int[]>res1 = new ArrayList<>();
 
-        boolean flag = false;
-        for(int i=0 ;i<n; i++){
-            if(!flag && newInterval[0] < intervals[i][0]){
+        boolean flage = false;
+        for(int i=0; i<n; i++){
+
+            if(!flage && newInterval[0] < intervals[i][0]){
                 res1.add(newInterval);
-                flag = true;
+                flage = true;
             }
             res1.add(new int []{intervals[i][0],intervals[i][1]});
         }
-        if(!flag){
+        if( !flage ){
             res1.add(newInterval);
         }
 
@@ -30,6 +31,7 @@ class Solution {
                 e1 = Math.max(e1,e2);
                 continue;
             }
+
             res2.add(new int [] {s1,e1});
             s1 = s2;
             e1 = e2;
