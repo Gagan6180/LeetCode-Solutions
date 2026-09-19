@@ -12,7 +12,7 @@ class Solution {
         PriorityQueue<Integer>maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
         int i=0;
-        while(k > 0){
+        while(k-- > 0){
             while(i < profits.length && merge[i][0] <= w){
                 maxHeap.add(merge[i][1]);
                 i++;
@@ -21,7 +21,6 @@ class Solution {
                 break;
             }
             w += maxHeap.poll();
-            k--;
         }
         return w;
     }
