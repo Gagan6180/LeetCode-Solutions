@@ -1,24 +1,21 @@
 class Solution {
     public double myPow(double x, int n) {
-       double ans =1;
-       long N = n;
+        long N = n;
 
-       if(N<0){
-        N = -N;
-       }
-
-       while(N > 0){
-        if(N%2 == 1){
-            ans = ans*x;
-            N=N-1;
-        }else{
-            x=x*x;
-            N=N/2;
+        if(N < 0){
+            return 1.0/helper(x,-N);
         }
-       }
-       if(n<0){
-        ans = 1.0/ans;
-       }
-       return ans;
+        return helper(x,N);
+    }
+    private double helper(double x, long n){
+        if(n == 0) return 1;
+
+        double half = helper(x,n/2);
+
+        if(n%2 == 0){
+            return half*half;
+        }else{
+            return half*half*x;
+        }
     }
 }
