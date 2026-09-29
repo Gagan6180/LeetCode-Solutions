@@ -1,14 +1,10 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        HashMap<Character,Integer>map = new HashMap<>();
+        HashSet<Character>seen = new HashSet<>();
 
         for(char c : sentence.toCharArray()){
-            map.put(c,map.getOrDefault(c,0)+1);
+            seen.add(c);
         }
-
-        if(map.size() == 26){
-            return true;
-        }
-        return false;
+        return seen.size() == 26;
     }
 }
