@@ -3,14 +3,8 @@ class Solution {
         List<Integer>list = new ArrayList<>();
 
         for(int i=0; i<words.length; i++){
-            char [] arr = words[i].toCharArray();
-            int j=0;
-            while(j<arr.length){
-                if(arr[j] == x){
-                    list.add(i);
-                    break;
-                }
-                j++;
+            if(words[i].indexOf(x) != -1){
+                list.add(i);
             }
         }
         return list;
