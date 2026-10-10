@@ -1,27 +1,23 @@
 class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        List<List<Integer>>res = new ArrayList<>();
         List<Integer>ds = new ArrayList<>();
+        List<List<Integer>>res = new ArrayList<>();
 
         Arrays.sort(nums);
-
         findSub(0,nums,res,ds);
         return res;
-
     }
     public void findSub(int i, int [] nums,List<List<Integer>>res,List<Integer>ds){
-        List<Integer> currentSubset = new ArrayList<>(ds);
-        if(i >= nums.length ){
-            if(!res.contains(currentSubset)){
-                res.add(currentSubset);
+        res.add(new ArrayList<>(ds));
+
+        for(int j=i; j<nums.length; j++){
+            if(j>i && nums[j] == nums[j-1]){
+                continue;
             }
-            return;
+
+            ds.add(nums[j]);
+            findSub(j+1,nums,res,ds);
+            ds.remove(ds.size()-1);
         }
-
-        ds.add(nums[i]);
-        findSub(i+1,nums,res,ds);
-
-        ds.remove(ds.size()-1);
-        findSub(i+1,nums,res,ds);
     }
 }
